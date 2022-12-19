@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const functions_1 = require("../Controller/functions");
+const multer_1 = require("../Config/multer");
+const route = (0, express_1.Router)();
+route.route("/getall").get(functions_1.getAll);
+route.route("/post").post(multer_1.Upload, functions_1.postData);
+route.route("/getone/:id").get(functions_1.getOne);
+route.route("/search").get(functions_1.search);
+route.route("/views:id").patch(functions_1.views);
+route.route("/deleteall").patch(functions_1.deletedata);
+exports.default = route;
